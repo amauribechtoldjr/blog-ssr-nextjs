@@ -1,3 +1,5 @@
+import BaseLayout from "../components/layouts/BaseLayout";
+
 export default function () {
-  return <h1>{`Eu sou a página Sobre`}</h1>
+  return <BaseLayout>{`Eu sou a página Sobre`}</BaseLayout>;
 }

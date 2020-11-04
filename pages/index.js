@@ -1,10 +1,12 @@
+import BaseLayout from "../components/layouts/BaseLayout";
 import Header from "../components/shared/Header";
+import BaseLayout from "../components/layouts/BaseLayout";
 
 export default function HomePage() {
   return (
-    <div>
+    <BaseLayout>
       <Header />
       {`Hello world!`}
-    </div>
+    </BaseLayout>
   );
 }
