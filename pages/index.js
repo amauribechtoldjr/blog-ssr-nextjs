@@ -1,6 +1,10 @@
 import BaseLayout from "../components/layouts/BaseLayout";
-import Header from "../components/shared/Header";
+import { Button, Container } from "reactstrap";
 
 export default function HomePage() {
-  return <BaseLayout>{`Hello world!`}</BaseLayout>;
+  return (
+    <BaseLayout>
+      <Button color="danger">{`Hello world!`}</Button>
+    </BaseLayout>
+  );
 }

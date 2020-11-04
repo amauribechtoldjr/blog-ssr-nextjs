@@ -1,3 +1,32 @@
-.customClassFromFile {
-  color: blue;
+@font-face {
+  src: url("/fonts/Montserrat-Regular.ttf");
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("/fonts/Montserrat-Bold.ttf");
+  font-family: "Montserrat";
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("/fonts/Montserrat-Light.ttf");
+  font-family: "Montserrat";
+  font-weight: lighter;
+  font-style: normal;
+}
+
+@font-face {
+  src: url("/fonts/Montserrat-Italic.ttf");
+  font-family: "Montserrat";
+  font-weight: normal;
+  font-style: italic;
+}
+
+html,
+body {
+  font-family: "Montserrat", "Helvetica";
 }
