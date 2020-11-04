@@ -1,11 +1,14 @@
 import Header from "../shared/Header";
-import { Container } from "reactstrap";
 
-export default function (props) {
+const BaseLayout = ({ className, children }) => {
   return (
-    <Container className="my-4">
+    <div className="layout-container">
       <Header />
-      {props.children}
-    </Container>
+      <main className={`cover ${className}`}>
+        <div className="wrapper">{children}</div>
+      </main>
+    </div>
   );
-}
+};
+
+export default BaseLayout;

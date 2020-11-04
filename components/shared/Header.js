@@ -1,29 +1,28 @@
-import Link from "next/link";
-import { ListGroup, ListGroupItem } from "reactstrap";
+import { useState } from "react";
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
+import HeaderLink from "./HeaderLink";
 
-export default function () {
+const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle = () => setIsOpen(!isOpen);
+
   return (
-    <ListGroup horizontal className="mb-2">
-      <ListGroupItem>
-        <Link href="/">
-          <a>Inicial</a>
-        </Link>
-      </ListGroupItem>
-      <ListGroupItem>
-        <Link href="/blog">
-          <a>Blog</a>
-        </Link>
-      </ListGroupItem>
-      <ListGroupItem>
-        <Link href="/festas">
-          <a>Festas</a>
-        </Link>
-      </ListGroupItem>
-      <ListGroupItem>
-        <Link href="/sobre">
-          <a>Sobre</a>
-        </Link>
-      </ListGroupItem>
-    </ListGroup>
+    <div>
+      <Navbar color="light" light expand="md">
+        <NavbarBrand>Festa online</NavbarBrand>
+        <NavbarToggler onClick={toggle} />
+        <Collapse isOpen={isOpen} navbar>
+          <Nav className="mr-auto" navbar>
+            <HeaderLink to="/" title="Início" />
+            <HeaderLink to="/festas" title="Festas" />
+            <HeaderLink to="/blog" title="Blog" />
+            <HeaderLink to="/sobre" title="Sobre" />
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
   );
-}
+};
+
+export default Header;
