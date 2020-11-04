@@ -1,11 +1,11 @@
 import { NavItem } from "reactstrap";
 import Link from "next/link";
 
-const HeaderLink = ({ to, title, className = "nav-link" }) => {
+const HeaderLink = ({ to, title, className }) => {
   return (
-    <NavItem>
+    <NavItem className={className}>
       <Link href={to}>
-        <a className={className}>{title}</a>
+        <a className="nav-link port-navbar-link">{title}</a>
       </Link>
     </NavItem>
   );

@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav } from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav, NavbarBrand } from "reactstrap";
 import HeaderLink from "./HeaderLink";
+import HeaderBrand from "./HeaderBrand";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -9,15 +10,28 @@ const Header = () => {
 
   return (
     <div>
-      <Navbar color="light" light expand="md">
-        <NavbarBrand>Festa online</NavbarBrand>
+      <Navbar
+        className="port-navbar port-default absolute"
+        color="transparent"
+        light
+        expand="md"
+      >
+        <HeaderBrand title="FestON" />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
-            <HeaderLink to="/" title="Início" />
-            <HeaderLink to="/festas" title="Festas" />
-            <HeaderLink to="/blog" title="Blog" />
-            <HeaderLink to="/sobre" title="Sobre" />
+            <HeaderLink to="/" title="Início" className="port-navbar-item" />
+            <HeaderLink
+              to="/festas"
+              title="Festas"
+              className="port-navbar-item"
+            />
+            <HeaderLink to="/blog" title="Blog" className="port-navbar-item" />
+            <HeaderLink
+              to="/sobre"
+              title="Sobre"
+              className="port-navbar-item"
+            />
           </Nav>
         </Collapse>
       </Navbar>

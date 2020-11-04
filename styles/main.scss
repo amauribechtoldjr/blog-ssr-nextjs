@@ -1,4 +1,10 @@
+// fonts
 @import "./shared/fonts";
+
+//components
+@import "./components/header";
+
+// pages
 @import "./index";
 
 html,
@@ -13,6 +19,10 @@ body {
   color: white;
   font-weight: bold;
   letter-spacing: 2px;
+}
+
+.absolute {
+  position: absolute;
 }
 
 @media (max-width: 768px) {
