@@ -5,7 +5,7 @@ export default function Blog() {
   return (
     <BaseLayout>
       <BasePage>
-        <h2>{`Eu sou a página Blog`}</h2>
+        <h1>{`Eu sou a página Blog`}</h1>
       </BasePage>
     </BaseLayout>
   );

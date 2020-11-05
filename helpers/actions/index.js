@@ -1,24 +1,25 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export const useGetPosts = () => {
-  const [posts, setPosts] = useState([]);
+export const useGetData = (uri) => {
+  const [data, setData] = useState(null);
   const [error, setError] = useState();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function getPosts() {
+    async function getData() {
       try {
-        const res = await axios.get("/api/v1/posts");
-        console.log(res);
-        const result = res.data;
-        setPosts(result);
+        const res = await axios.get(uri);
+        setData(res.data);
       } catch (e) {
         setError(e.message);
       }
+
+      setLoading(false);
     }
 
-    getPosts();
-  }, []);
+    uri && getData();
+  }, [uri]);
 
-  return { posts, error };
+  return { data, error, loading };
 };

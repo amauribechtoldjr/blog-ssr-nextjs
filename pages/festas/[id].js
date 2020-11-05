@@ -1,36 +1,29 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
-import axios from "axios";
 import { withRouter } from "next/router";
+import { useGetData } from "@/helpers/actions";
 
-const Festas = ({ post }) => {
+const Post = ({ router }) => {
+  const { data: post, error, loading } = useGetData(
+    `/api/posts/${router.query.id}`
+  );
+  console.log(post);
   return (
     <BaseLayout>
       <BasePage>
         <h1>{`Eu sou a página Festas`}</h1>
-        <ul>
-          <li>{post.id}</li>
-          <li>{post.title}</li>
-          <li>{post.body}</li>
-        </ul>
+        {post && (
+          <ul>
+            <li>{post.id}</li>
+            <li>{post.title}</li>
+            <li>{post.body}</li>
+          </ul>
+        )}
+        {error && <div className="alert alert-danger">Ocorreu um erro!</div>}
+        {loading && <div className="alert alert-info">Carregando...</div>}
       </BasePage>
     </BaseLayout>
   );
 };
 
-Festas.getInitialProps = async ({ query: { id } }) => {
-  let post = [];
-
-  try {
-    const res = await axios.get(
-      `https://jsonplaceholder.typicode.com/posts/${id}`
-    );
-    post = res.data;
-  } catch (e) {
-    console.log(e);
-  }
-
-  return { post };
-};
-
-export default withRouter(Festas);
+export default withRouter(Post);
