@@ -16,7 +16,7 @@ const Header = () => {
         light
         expand="md"
       >
-        <HeaderBrand title="FestON" />
+        <HeaderBrand title="FEST.ON" />
         <NavbarToggler onClick={toggle} />
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
