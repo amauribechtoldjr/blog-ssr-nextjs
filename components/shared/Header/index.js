@@ -5,15 +5,11 @@ import HeaderBrand from "@/components/shared/Header/HeaderBrand";
 import HeaderButton from "@/components/shared/Header/HeaderButton";
 import { useRouter } from "next/router";
 
-const Header = () => {
-  const router = useRouter();
+const Header = ({ user, loading }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
-  const login = () => {
-    router.push("/api/login");
-  };
-
+  console.log("usuerio", user);
   return (
     <div>
       <Navbar
@@ -40,13 +36,16 @@ const Header = () => {
             />
           </Nav>
           <Nav navbar>
-            <a href="/api/login" className="nav-link port-navbar-link">
-              Entrar
-            </a>
-            {/* <HeaderLink to="/api/login" title="Entrar" /> */}
-            <NavItem className="port-navbar-item">
-              <HeaderButton title="Sair" />
-            </NavItem>
+            {!loading && !user && (
+              <a href="/api/login" className="nav-link port-navbar-link">
+                Entrar
+              </a>
+            )}
+            {!loading && user && (
+              <a href="/api/logout" className="nav-link port-navbar-link">
+                Sair
+              </a>
+            )}
           </Nav>
         </Collapse>
       </Navbar>

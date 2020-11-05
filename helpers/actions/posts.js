@@ -1,15 +1,5 @@
 import useSWR from "swr";
-
-const fetcher = (url) =>
-  fetch(url).then(async (res) => {
-    const result = await res.json();
-    console.log(result);
-    if (res.status !== 200) {
-      return Promise.reject(result);
-    } else {
-      return result;
-    }
-  });
+import { fetcher } from "@/helpers/actions/fetcher";
 
 export const useGetPosts = () => {
   const { data, error, ...rest } = useSWR("/api/posts", fetcher);
