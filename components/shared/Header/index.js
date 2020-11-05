@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Collapse, Navbar, NavbarToggler, Nav } from "reactstrap";
-import HeaderLink from "./HeaderLink";
-import HeaderBrand from "./HeaderBrand";
+import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
+import HeaderLink from "@/components/shared/Header/HeaderLink";
+import HeaderBrand from "@/components/shared/Header/HeaderBrand";
+import HeaderButton from "@/components/shared/Header/HeaderButton";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -32,6 +33,14 @@ const Header = () => {
               title="Sobre"
               className="port-navbar-item"
             />
+          </Nav>
+          <Nav navbar>
+            <NavItem className="port-navbar-item">
+              <HeaderButton title="Entrar" />
+            </NavItem>
+            <NavItem className="port-navbar-item">
+              <HeaderButton title="Sair" />
+            </NavItem>
           </Nav>
         </Collapse>
       </Navbar>
