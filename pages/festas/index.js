@@ -1,21 +1,10 @@
-import { useEffect, useState } from "react";
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
 import Link from "next/link";
-import axios from "axios";
+import { useGetPosts } from "@/helpers/actions";
 
 const Festas = () => {
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    async function getPosts() {
-      const res = await axios.get("/api/v1/posts");
-      console.log(res);
-      setPosts(res.data);
-    }
-
-    getPosts();
-  }, []);
+  const { posts, error } = useGetPosts();
 
   return (
     <BaseLayout>
@@ -30,6 +19,7 @@ const Festas = () => {
                 </Link>
               </li>
             ))}
+          {error && <span>{error}</span>}
         </ul>
       </BasePage>
     </BaseLayout>
