@@ -1,10 +1,10 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
 import Link from "next/link";
-import { useGetData } from "@/helpers/actions";
+import { useGetPosts } from "@/helpers/actions";
 
 const Festas = () => {
-  const { data: posts, error, loading } = useGetData("/api/posts");
+  const { data: posts, error, loading } = useGetPosts();
 
   return (
     <BaseLayout>
@@ -21,9 +21,7 @@ const Festas = () => {
               </li>
             ))}
         </ul>
-        {error && (
-          <div className="alert alert-danger">{JSON.stringify(error)}</div>
-        )}
+        {error && <div className="alert alert-danger">{error.message}</div>}
         {loading && <div className="alert alert-info">Carregando...</div>}
       </BasePage>
     </BaseLayout>

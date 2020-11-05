@@ -1,13 +1,13 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
-import { withRouter } from "next/router";
-import { useGetData } from "@/helpers/actions";
+import { useRouter } from "next/router";
+import { useGetPost } from "@/helpers/actions";
 
-const Post = ({ router }) => {
-  const { data: post, error, loading } = useGetData(
-    `/api/posts/${router.query.id}`
-  );
-  console.log(post);
+const Post = () => {
+  const router = useRouter();
+  const { id } = router.query;
+  const { data: post, error, loading } = useGetPost(id);
+
   return (
     <BaseLayout>
       <BasePage>
@@ -26,4 +26,4 @@ const Post = ({ router }) => {
   );
 };
 
-export default withRouter(Post);
+export default Post;
