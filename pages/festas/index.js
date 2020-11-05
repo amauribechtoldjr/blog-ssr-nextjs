@@ -10,9 +10,9 @@ const Festas = ({ posts }) => {
         <h1>{`Eu sou a página Festas`}</h1>
         <ul>
           {posts.map((p) => (
-            <li key={p.id}>
+            <li key={p.id} style={{ color: "#fff" }}>
               <Link href={`/festas/${p.id}`}>
-                <a>{p.title}</a>
+                <a style={{ color: "#fff" }}>{p.title}</a>
               </Link>
             </li>
           ))}
