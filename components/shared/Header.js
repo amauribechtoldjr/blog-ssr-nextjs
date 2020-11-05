@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Collapse, Navbar, NavbarToggler, Nav, NavbarBrand } from "reactstrap";
+import { Collapse, Navbar, NavbarToggler, Nav } from "reactstrap";
 import HeaderLink from "./HeaderLink";
 import HeaderBrand from "./HeaderBrand";
 
