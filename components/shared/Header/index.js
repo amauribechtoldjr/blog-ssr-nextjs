@@ -3,11 +3,16 @@ import { Collapse, Navbar, NavbarToggler, Nav, NavItem } from "reactstrap";
 import HeaderLink from "@/components/shared/Header/HeaderLink";
 import HeaderBrand from "@/components/shared/Header/HeaderBrand";
 import HeaderButton from "@/components/shared/Header/HeaderButton";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => setIsOpen(!isOpen);
+  const login = () => {
+    router.push("/api/login");
+  };
 
   return (
     <div>
@@ -35,9 +40,10 @@ const Header = () => {
             />
           </Nav>
           <Nav navbar>
-            <NavItem className="port-navbar-item">
-              <HeaderButton title="Entrar" />
-            </NavItem>
+            <a href="/api/login" className="nav-link port-navbar-link">
+              Entrar
+            </a>
+            {/* <HeaderLink to="/api/login" title="Entrar" /> */}
             <NavItem className="port-navbar-item">
               <HeaderButton title="Sair" />
             </NavItem>
