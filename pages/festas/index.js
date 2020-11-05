@@ -1,20 +1,23 @@
 import BaseLayout from "../../components/layouts/BaseLayout";
+import BasePage from "../../components/BasePage";
 import Link from "next/link";
 import axios from "axios";
 
 const Festas = ({ posts }) => {
   return (
     <BaseLayout>
-      <h1>{`Eu sou a página Festas`}</h1>
-      <ul>
-        {posts.map((p) => (
-          <li key={p.id}>
-            <Link href={`/festas/${p.id}`}>
-              <a>{p.title}</a>
-            </Link>
-          </li>
-        ))}
-      </ul>
+      <BasePage>
+        <h1>{`Eu sou a página Festas`}</h1>
+        <ul>
+          {posts.map((p) => (
+            <li key={p.id}>
+              <Link href={`/festas/${p.id}`}>
+                <a>{p.title}</a>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </BasePage>
     </BaseLayout>
   );
 };

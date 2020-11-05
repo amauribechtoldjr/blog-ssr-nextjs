@@ -25,6 +25,11 @@ body {
   position: absolute;
 }
 
+.base-page {
+  padding-top: 150px;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .hero-welcome-text {
     margin-top: 40px;
