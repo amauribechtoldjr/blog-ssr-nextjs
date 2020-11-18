@@ -1,12 +1,16 @@
-import {useEffect} from 'react';
+import { useEffect } from "react";
 import { useGetUser } from "@/helpers/actions/user";
-import {useRouter} from 'next/router';
+import { useRouter } from "next/router";
 
-const Redirect = () => {
+const Redirect = ({ to }) => {
   const { data: user, loading: userLoading } = useGetUser();
   const router = useRouter();
 
+  useEffect(() => {
+    router.push(to);
+  });
+
   return null;
-}
+};
 
 export default Redirect;

@@ -1,21 +1,16 @@
 import BaseLayout from "@/components/layouts/BaseLayout";
 import BasePage from "@/components/BasePage";
+import Redirect from "@/components/shared/Redirect";
 import { useGetUser } from "@/helpers/actions/user";
-import {useRouter} from 'next/router';
 
 export default function Testing() {
   const { data: user, loading: userLoading } = useGetUser();
-  const router = useRouter();
 
   if (userLoading) return <div>Loading..</div>;
 
   if (!user) {
-    //TODO: improve return
-    router.push('/api/login');
-    return null;
+    return <Redirect to="/api/login" />;
   }
-
-  console.log(user);
 
   return (
     <BaseLayout user={user} loading={userLoading}>
