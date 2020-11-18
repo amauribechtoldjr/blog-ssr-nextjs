@@ -7,9 +7,8 @@ import { useRouter } from "next/router";
 
 const Header = ({ user, loading }) => {
   const [isOpen, setIsOpen] = useState(false);
-
   const toggle = () => setIsOpen(!isOpen);
-  console.log("usuerio", user);
+  
   return (
     <div>
       <Navbar
