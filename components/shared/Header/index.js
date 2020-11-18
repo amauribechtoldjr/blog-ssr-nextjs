@@ -8,7 +8,7 @@ import { useRouter } from "next/router";
 const Header = ({ user, loading }) => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
-  
+
   return (
     <div>
       <Navbar
@@ -31,6 +31,11 @@ const Header = ({ user, loading }) => {
             <HeaderLink
               to="/sobre"
               title="Sobre"
+              className="port-navbar-item"
+            />
+            <HeaderLink
+              to="/testing"
+              title="Secret"
               className="port-navbar-item"
             />
           </Nav>
